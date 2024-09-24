@@ -1,4 +1,4 @@
-import 'utils.dart'; // Assuming this is where your Json type is defined.
+import 'utils.dart';
 
 class User {
   final String fullName;
