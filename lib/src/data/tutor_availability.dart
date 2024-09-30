@@ -53,6 +53,6 @@ class TutorAvailability {
         "maxStudents": maxStudents,
         "location": location,
         "tutorContact": tutorContact,
-        "note": note
+        "note": note,
       };
 }
