@@ -2,7 +2,6 @@ import "utils.dart";
 import "chat.dart";
 
 class Course {
-  final String CRN;
   final String department;
   Chat chat;
  

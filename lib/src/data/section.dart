@@ -3,6 +3,7 @@ import "chat.dart";
 
 class Section {
   final String section_id;
+  final String CRN;
   Chat chat;
  
   Section({
