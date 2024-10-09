@@ -3,6 +3,8 @@ import "chat.dart";
 
 class Course {
   final String department;
+  final int course_number;
+  final String subject;
   Chat chat;
  
   Course({
