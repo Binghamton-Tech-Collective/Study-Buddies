@@ -24,7 +24,7 @@ class UserProfile {
   });
 
   /// Creates a new UserProfile object from a JSON object.
-  UserProfile.fromJson(Json json) : 
+  UserProfile.fromJson(Json json) :
     name = json["name"],
     currentCourses = [
       for (final courseJson in json["currentCourses"])
@@ -47,6 +47,7 @@ class UserProfile {
       for (final pastCourse in pastCourses)
         pastCourse.toJson(),
     ],
+    "year": year.toJson(),
   };
 }
 
