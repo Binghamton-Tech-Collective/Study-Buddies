@@ -1,6 +1,8 @@
 import "utils.dart";
 import "chat.dart";
 
+extension type CourseId(String value) {}
+
 class Course {
   final String department;
   final int course_number;

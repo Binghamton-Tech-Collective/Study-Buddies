@@ -1,6 +1,8 @@
 import "utils.dart";
 import "chat.dart";
 
+extension type SectionId(String value) {}
+
 class Section {
   final String section_id;
   final String CRN;

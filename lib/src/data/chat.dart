@@ -1,5 +1,7 @@
 import "utils.dart";
 
+extension type ChatId(String value) {}
+
 class Chat {
   List<String> messages;
   Map<String, String> members;

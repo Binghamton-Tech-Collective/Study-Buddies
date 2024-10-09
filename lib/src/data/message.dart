@@ -1,5 +1,7 @@
 import "utils.dart";
 
+extension type MessageId(String value) {}
+
 class Message {
   final String id;
   final String content;
