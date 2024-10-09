@@ -1,4 +1,4 @@
-import "types.dart";
+import "utils.dart";
 
 /// A course
 class Course {

@@ -1,7 +1,6 @@
 import "course.dart";
+import "utils.dart";
 
-/// An alias for a JSON object
-typedef Json = Map<String, dynamic>;
 /// Represents information about a normal user.
 class UserProfile {
   /// The user's name.
