@@ -12,7 +12,7 @@ class Message {
   Message.fromJson(Json json) :
 	id = json["id"],
 	content = json["content"],
-	author = json["author"]
+	author = json["author"];
 
   Json toJson() => {
 	"id": id,
