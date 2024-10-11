@@ -8,22 +8,23 @@ class Course {
   final int course_number;
   final String subject;
   Chat chat;
- 
+
   Course({
-	required this.CRN,
-	required this.department
-  }) {
-	this.chat = Chat()
-  };
+	required this.department,
+	required this.course_number,
+	required this.subject,
+  }) : chat = Chat();
 
   Course.fromJson(Json json) :
-	this.CRN = json["CRN"],
 	this.department = json["department"],
-	this.chat = json["chat"]
+	this.course_number = json["course_number"],
+	this.subject = json["subject"],
+	this.chat = json["chat"];
 
   Json toJson() => {
-	"CRN": this.CRN,
 	"department": this.department,
+	"course_number": this.course_number,
+	"subject": this.subject,
 	"chat": this.chat.toJson(),
   };
 }
