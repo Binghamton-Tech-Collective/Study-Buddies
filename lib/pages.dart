@@ -1,4 +1,5 @@
 import "package:go_router/go_router.dart";
+import "package:study_buddies/src/pages/login.dart";
 export "package:go_router/go_router.dart";
 
 import "src/pages/home.dart";
@@ -16,7 +17,7 @@ final router = GoRouter(
     GoRoute(
       path: Routes.home,
       name: Routes.home,
-      builder: (_, __) => HomePage(),
+      builder: (_, __) => LoginPage(),
     ),
   ],
 );

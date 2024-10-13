@@ -1,25 +1,31 @@
-/// Defines and manages the different services used by the app.
-library;
+export "src/services/auth.dart";
+export "src/services/database.dart";
+export "src/services/service.dart";
+
+import "package:study_buddies/data.dart";
 
 import "src/services/service.dart";
+import "src/services/auth.dart";
+import "src/services/firebase.dart";
+import "src/services/database.dart";
 
-/// A [Service] that manages all other services used by the app.
-class Services extends Service {
-	/// Prevents other instances of this class from being created.
-	Services._();
 
-  // Define your services here
+class Services extends Service{
+  final firebase = FirebaseService();
+  final auth = AuthService();
 
-	/// The different services to initialize, in this order.
-	List<Service> get services => [];
 
-	@override
-	Future<void> init() async {
-		for (final service in services) {
-      await service.init();
-    }
-	}
+  @override
+  Future<void> init() async {
+    await firebase.init();
+    await auth.init();
+  }
+
+  @override
+  Future<void> dispose() async {
+    await firebase.dispose();
+    await auth.dispose();
+  }
 }
 
-/// The global services object.
-final services = Services._();
+final services = Services();
