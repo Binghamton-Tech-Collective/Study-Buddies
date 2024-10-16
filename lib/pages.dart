@@ -2,8 +2,6 @@ import "package:go_router/go_router.dart";
 import "package:study_buddies/src/pages/login.dart";
 export "package:go_router/go_router.dart";
 
-import "src/pages/home.dart";
-
 /// Contains all the routes for this app.
 class Routes {
   /// The route for the home page.

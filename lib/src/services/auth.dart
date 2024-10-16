@@ -1,6 +1,5 @@
 import "package:firebase_auth/firebase_auth.dart";
 
-import "package:study_buddies/data.dart";
 import "package:flutter/foundation.dart";
 
 import "service.dart";
@@ -30,7 +29,4 @@ class AuthService extends Service {
   }
 
   User? get user => firebase.currentUser;
-
-  // UserID? get userID => user == null ? null : UserID(user!.uid);
-  
 }

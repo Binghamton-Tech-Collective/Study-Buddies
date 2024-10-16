@@ -2,13 +2,9 @@ export "src/services/auth.dart";
 export "src/services/database.dart";
 export "src/services/service.dart";
 
-import "package:study_buddies/data.dart";
-
 import "src/services/service.dart";
 import "src/services/auth.dart";
 import "src/services/firebase.dart";
-import "src/services/database.dart";
-
 
 class Services extends Service{
   final firebase = FirebaseService();
