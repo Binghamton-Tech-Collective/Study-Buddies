@@ -6,16 +6,23 @@ import "package:study_buddies/widgets.dart";
 /// The home page.
 class HomePage extends ReactiveWidget<HomeModel> {
   @override
-  HomeModel createModel() => HomeModel();
+  HomeModel createModel() => HomeModel(20);
 
   @override
   Widget build(BuildContext context, HomeModel model) => Scaffold(
     appBar: AppBar(title: const Text("Counter")),
     body: Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("You have pressed the button this many times"),
-          Text(model.count.toString()),
+          Text(
+            "You have pressed the button this many times",
+            style: context.textTheme.headlineLarge,
+          ),
+          Text(
+            model.count.toString(),
+            style: context.textTheme.headlineSmall,
+          ),
         ],
       ),
     ),

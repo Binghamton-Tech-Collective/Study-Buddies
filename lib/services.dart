@@ -19,13 +19,6 @@ class Services extends Service {
       await service.init();
     }
 	}
-
-	@override
-	Future<void> dispose() async {
-		for (final service in services) {
-      await service.dispose();
-    }
-	}
 }
 
 /// The global services object.
