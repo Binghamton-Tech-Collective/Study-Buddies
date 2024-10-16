@@ -7,10 +7,10 @@ class UserProfile {
   final String name;
 
   /// The user's current courses.
-  final List<Course> currentCourses;
+  final Set<CourseID> currentCourses;
 
   /// The user's past courses.
-  final List<Course> pastCourses;
+  final Set<CourseID> pastCourses;
 
   /// The user's current school year
   final SchoolYear year;
