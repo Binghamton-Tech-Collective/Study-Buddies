@@ -4,4 +4,6 @@ abstract class Service {
 	///
 	/// This is guaranteed to be called before any other methods.
 	Future<void> init();
+
+  Future<void> dispose();
 }

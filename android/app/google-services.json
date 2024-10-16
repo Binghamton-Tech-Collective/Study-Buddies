@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1001326048718",
+    "project_id": "studybuddies-10b69",
+    "storage_bucket": "studybuddies-10b69.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001326048718:android:2e60c71aacae5056f8a79f",
+        "android_client_info": {
+          "package_name": "com.btc.study_buddies"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCInE_p46Ac6MVmFFs3VNpj7aF1y5SE7HI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
