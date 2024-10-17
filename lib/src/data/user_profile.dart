@@ -12,64 +12,86 @@ class UserProfile {
   /// The user's past courses.
   final Set<CourseID> pastCourses;
 
-  /// The user's current school year
+  /// The courses the user can teach/tutor.
+  final Set<CourseID> canTeach;
+
+  /// The user's current school year.
   final SchoolYear year;
+
+  /// The URL to the user's profile image.
+  final String? imageUrl;
+
+  /// The user's profile bio.
+  final String bio;
+
+  /// The user's major.
+  final String major;
+
+  /// The user's email.
+  final String email;
+
+  /// The user's availability.
+  final AvailabilityStatus isAvailable;
+
+  /// The unique user id.
+  final UserID userId;
 
   /// Creates a seller's profile.
   const UserProfile({
     required this.name,
     required this.currentCourses,
     required this.pastCourses,
+    required this.canTeach,
     required this.year,
+    required this.imageUrl,
+    required this.bio,
+    required this.major,
+    required this.email,
+    required this.isAvailable,
+    required this.userId,
   });
 
   /// Creates a new UserProfile object from a JSON object.
   UserProfile.fromJson(Json json) :
     name = json["name"],
-    currentCourses = [
-      for (final courseJson in json["currentCourses"])
-        Course.fromJson(courseJson),
-    ],
-    pastCourses = [
-      for (final courseJson in json["currentCourses"])
-        Course.fromJson(courseJson),
-    ],
-    year = SchoolYear.fromJson(json["year"]);
+    currentCourses = Set<CourseID>.from(json["currentCourses"]),
+    pastCourses = Set<CourseID>.from(json["pastCourses"]),
+    canTeach = Set<CourseID>.from(json["canTeach"]),
+    year = SchoolYear.values[json["year"]],
+    imageUrl = json["imageUrl"],
+    bio = json["bio"],
+    major = json["major"],
+    email = json["email"],
+    isAvailable = AvailabilityStatus.values[json["isAvailable"] ?? 0],
+    userId = json["userId"];
 
   /// Convert this UserProfile to its JSON representation
   Json toJson() => {
     "name": name,
-    "currentCourses": [
-      for (final currentCourse in currentCourses)
-        currentCourse.toJson(),
-    ],
-    "pastCourses": [
-      for (final pastCourse in pastCourses)
-        pastCourse.toJson(),
-    ],
-    "year": year.toJson(),
+    "currentCourses": currentCourses,
+    "pastCourses": pastCourses,
+    "canTeach": canTeach,
+    "year": year.index,
+    "imageUrl": imageUrl,
+    "bio": bio,
+    "major": major,
+    "email": email,
+    "isAvailable": isAvailable.index,
+    "userId": userId,
   };
 }
 
 /// A year in school
 enum SchoolYear {
-  freshman(id: 0),
-  sophomore(id: 1),
-  junior(id: 2),
-  senior(id: 3),
-  graduate(id: 4),
-  faculty(id: 5);
+  freshman,
+  sophomore,
+  junior,
+  senior,
+  graduate,
+  faculty;
+}
 
-  /// Stores the unique ID for this year in school.
-  final int id;
-
-  const SchoolYear({
-    required this.id,
-  });
-
-  /// Gets a year in school from a JSON format.
-  factory SchoolYear.fromJson(int id) => values.firstWhere((year) => year.id == id);
-  
-  /// Converts this year in school to a value you can store in a database.
-  int toJson() => id;
+enum AvailabilityStatus {
+  available,
+  unavailable,
 }
