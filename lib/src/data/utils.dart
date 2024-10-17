@@ -24,3 +24,5 @@ extension ListUtils<E> on List<E> {
     }
   }
 }
+
+extension type UserID(String value) {}
