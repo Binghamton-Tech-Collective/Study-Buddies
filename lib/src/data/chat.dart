@@ -4,16 +4,18 @@ extension type ChatId(String value) {}
 
 class Chat {
   List<String> messages;
-  Map<String, String> members;
+  Set<String> members;
  
-  Chat({});
+  Chat({ required this.messages, required this.members});
 
-  Foo.fromJson(Json json) :
+  factory Chat.start() => Chat(messages: [], members: {});
+
+  Chat.fromJson(Json json) :
 	messages = json["messages"],
-	members = json["members"]
+	members = json["members"];
 
   Json toJson() => {
 	"messages": messages,
-	"members": members
+	"members": members,
   };
 }
