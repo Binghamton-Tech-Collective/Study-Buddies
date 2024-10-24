@@ -1,16 +1,16 @@
 import "utils.dart";
 
 extension type TutorID(String value) {}
+extension type CourseID(String value) {}
 
 class TutorAvailability {
   final TutorID tutorId;
   final String department;
-  final List<String> availableCourses;
+  final List<CourseID> availableCourses;
   final String tutorName;
   final String appointmentType;
-  final DateTime appointmentDate;
-  final String appointmentTime;
-  final int maxStudents;
+  final DateTime appointmentDateTime;
+  final int? maxStudents;
   final String location;
   final String tutorContact;
   final String? note;
@@ -21,8 +21,7 @@ class TutorAvailability {
     required this.availableCourses,
     required this.tutorName,
     required this.appointmentType,
-    required this.appointmentDate,
-    required this.appointmentTime,
+    required this.appointmentDateTime,
     required this.maxStudents,
     required this.location,
     required this.tutorContact,
@@ -35,8 +34,7 @@ class TutorAvailability {
         availableCourses = json["availableCourses"]?.cast<String>() ?? [],
         tutorName = json["tutorName"],
         appointmentType = json["appointmentType"],
-        appointmentDate = DateTime.parse(json["appointmentDate"]),
-        appointmentTime = json["appointmentTime"],
+        appointmentDateTime = DateTime.parse(json["appointmentDateTime"]),
         maxStudents = json["maxStudents"],
         location = json["location"],
         tutorContact = json["tutorContact"],
@@ -48,8 +46,7 @@ class TutorAvailability {
         "availableCourses": availableCourses,
         "tutorName": tutorName,
         "appointmentType": appointmentType,
-        "appointmentDate": appointmentDate,
-        "appointmentTime": appointmentTime,
+        "appointmentDateTime": appointmentDateTime,
         "maxStudents": maxStudents,
         "location": location,
         "tutorContact": tutorContact,
