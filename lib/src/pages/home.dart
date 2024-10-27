@@ -6,7 +6,7 @@ import "package:study_buddies/widgets.dart";
 /// The home page.
 class HomePage extends ReactiveWidget<HomeModel> {
   @override
-  HomeModel createModel() => HomeModel(20);
+  HomeModel createModel() => HomeModel();
 
   @override
   Widget build(BuildContext context, HomeModel model) => Scaffold(

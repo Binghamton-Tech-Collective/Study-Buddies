@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
 
+/// A common interface for all widgets that need to react to a [ChangeNotifier].
 abstract class ReactiveWidgetInterface<T extends ChangeNotifier> extends StatefulWidget {
+  /// A const constructor.
   const ReactiveWidgetInterface();
 
   /// A function to create or find the model. This function will only be called once.
