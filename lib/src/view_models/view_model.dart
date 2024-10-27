@@ -13,16 +13,16 @@ abstract class ViewModel with ChangeNotifier {
 	/// Override this method to initializes any data needed by the model.
   Future<void> init() async {}
 
-  /// Whether this model is currently loading data. Setting this updates the UI.
   bool _isLoading = false;
+  /// Whether this model is currently loading data. Setting this updates the UI.
   bool get isLoading => _isLoading;
   set isLoading(bool value) {
     _isLoading = value;
     notifyListeners();
   }
 
-  /// Whether this model has encountered an error. Setting this updates the UI.
   String? _errorText;
+  /// Whether this model has encountered an error. Setting this updates the UI.
   String? get errorText => _errorText;
   set errorText(String? value) {
     _errorText = value;
