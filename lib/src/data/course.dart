@@ -1,31 +1,35 @@
 import "utils.dart";
 import "chat.dart";
 
-extension type CourseId(String value) {}
+extension type CourseID(String value) {}
 
 class Course {
+  final CourseID id;
   final String department;
   final int courseNumber;
   final String subject;
-  Chat chat;
+  final Chat chat;
 
   Course({
-	required this.department,
-	required this.courseNumber,
-	required this.subject,
-  required this.chat,
+    required this.id,
+    required this.department,
+    required this.courseNumber,
+    required this.subject,
+    required this.chat,
   });
 
   Course.fromJson(Json json) :
-	department = json["department"],
-	courseNumber = json["courseNumber"],
-	subject = json["subject"],
-	chat = json["chat"];
+    id = json["id"],
+    department = json["department"],
+    courseNumber = json["courseNumber"],
+    subject = json["subject"],
+    chat = json["chat"];
 
   Json toJson() => {
-	"department": department,
-	"courseNumber": courseNumber,
-	"subject": subject,
-	"chat": chat.toJson(),
+    "id": id,
+    "department": department,
+    "courseNumber": courseNumber,
+    "subject": subject,
+    "chat": chat.toJson(),
   };
 }

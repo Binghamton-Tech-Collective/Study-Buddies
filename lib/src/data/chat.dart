@@ -21,6 +21,7 @@ class Chat {
     members = json["members"];
 
   Json toJson() => {
+    "id": id,
     "messages": messages,
     "members": members,
   };
