@@ -1,21 +1,27 @@
 import "utils.dart";
 
-extension type ChatId(String value) {}
+extension type ChatID(String value) {}
 
 class Chat {
-  List<String> messages;
-  Set<String> members;
- 
-  Chat({ required this.messages, required this.members});
+  final ChatID id;
+  final List<String> messages;
+  final Set<String> members;
 
-  factory Chat.start() => Chat(messages: [], members: {});
+  Chat({
+    required this.id,
+    required this.messages,
+    required this.members,
+  });
+
+  factory Chat.start(ChatID id) => Chat(id: id, messages: [], members: {});
 
   Chat.fromJson(Json json) :
-	messages = json["messages"],
-	members = json["members"];
+    id = json["id"],
+    messages = json["messages"],
+    members = json["members"];
 
   Json toJson() => {
-	"messages": messages,
-	"members": members,
+    "messages": messages,
+    "members": members,
   };
 }
