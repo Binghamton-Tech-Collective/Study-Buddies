@@ -2,7 +2,6 @@ import "utils.dart";
 import "message.dart";
 
 extension type ChatID(String value) {}
-// TODO(mtfehrer): message.
 extension type UserID(String value) {}
 
 class Chat {
@@ -23,7 +22,7 @@ class Chat {
     messages = [
       for (final messageJson in json["messages"])
         Message.fromJson(messageJson),
-    ]
+    ],
     members = json["members"];
 
   Json toJson() => {
