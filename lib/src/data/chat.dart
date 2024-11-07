@@ -20,12 +20,18 @@ class Chat {
 
   Chat.fromJson(Json json) :
     id = json["id"],
-    messages = json["messages"],
+    messages = [
+      for (final messageJson in json["messages"])
+        Message.fromJson(messageJson),
+    ]
     members = json["members"];
 
   Json toJson() => {
     "id": id,
-    "messages": messages,
+    "messages": [
+      for (final message in messages)
+        message.toJson(),
+    ],
     "members": members,
   };
 }
