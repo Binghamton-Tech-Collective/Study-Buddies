@@ -1,26 +1,23 @@
 import "utils.dart";
 import "chat.dart";
 
-extension type SectionId(String value) {}
+extension type SectionID(String value) {}
 
 class Section {
-  final String sectionId;
-  final String cRN;
-  Chat chat;
+  final SectionID id;
+  final ChatID chat;
  
   Section({
-	required this.sectionId,
-  required this.cRN,
+	required this.id,
   required this.chat,
   });
 
   Section.fromJson(Json json) :
-  sectionId = json["sectionId"],
-  cRN = json["cRN"],
+  id = json["id"],
 	chat = json["chat"];
 
   Json toJson() => {
-	"sectionId": sectionId,
-	"chat": chat.toJson(),
+	"id": id,
+	"chat": id,
   };
 }
