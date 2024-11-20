@@ -17,6 +17,7 @@ class Course {
   /// Chat object for this course.
   final Chat chat;
 
+  /// A constructor for the Course class
   Course({
     required this.id,
     required this.department,

@@ -11,6 +11,7 @@ class Section {
   /// A chat object for this section.
   final ChatID chat;
  
+  /// A constructor for the Section class.
   Section({
 	required this.id,
   required this.chat,
