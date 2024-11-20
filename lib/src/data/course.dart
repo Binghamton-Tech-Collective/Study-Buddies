@@ -1,6 +1,7 @@
 import "utils.dart";
 import "chat.dart";
 
+/// A CourseID extension type to prevent errors.
 extension type CourseID(String value) {}
 
 /// A class for each BU course.

@@ -1,6 +1,8 @@
 import "utils.dart";
 
+/// A message extension type to prevent errors.
 extension type MessageId(String value) {}
+/// A UserID extension type to prevent errors.
 extension type UserID(String value) {}
 
 /// Each message in the chat data class.

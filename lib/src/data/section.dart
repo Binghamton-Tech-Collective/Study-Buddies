@@ -1,6 +1,7 @@
 import "utils.dart";
 import "chat.dart";
 
+/// A section extension type to prevent errors.
 extension type SectionID(String value) {}
 
 /// A section for a specific course.
