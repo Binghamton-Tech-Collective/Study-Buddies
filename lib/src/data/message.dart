@@ -1,14 +1,14 @@
 import "utils.dart";
 
 /// A message extension type to prevent errors.
-extension type MessageId(String value) {}
+extension type MessageID(String value) {}
 /// A UserID extension type to prevent errors.
 extension type UserID(String value) {}
 
 /// Each message in the chat data class.
 class Message {
   /// A unique ID for the message.
-  final MessageId id;
+  final MessageID id;
 
   /// The content of the message.
   final String content;
