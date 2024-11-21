@@ -3,6 +3,7 @@ import "message.dart";
 
 /// A ChatID extension type to prevent errors.
 extension type ChatID(String value) {}
+
 /// A UserID extension type to prevent errors.
 extension type UserID(String value) {}
 
@@ -32,7 +33,7 @@ class Chat {
       for (final messageJson in json["messages"])
         Message.fromJson(messageJson),
     ],
-    members = json["members"];
+    members = Set<UserID>.from(json["members"]);
 
   /// Convert this Chat to its JSON representation.
   Json toJson() => {
@@ -41,6 +42,6 @@ class Chat {
       for (final message in messages)
         message.toJson(),
     ],
-    "members": members,
+    "members": members.toList(),
   };
 }

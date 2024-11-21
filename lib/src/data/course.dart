@@ -6,14 +6,18 @@ extension type CourseID(String value) {}
 
 /// A class for each BU course.
 class Course {
-  /// A unique ID
+  /// A unique ID for this course.
   final CourseID id;
-  /// Dapartment of the course.
+
+  /// Department of this course.
   final String department;
-  /// Course number for the course.
+
+  /// Course number for this course.
   final int courseNumber;
-  /// Subject of the course.
+
+  /// Subject of this course.
   final String subject;
+
   /// Chat object for this course.
   final Chat chat;
 
