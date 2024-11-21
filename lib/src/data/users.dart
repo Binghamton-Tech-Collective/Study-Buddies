@@ -8,11 +8,20 @@ enum AvailabilityStatus {
 }
 
 class User {
-  List<UserID>? blockedUser;
+  final List<UserID> blockedUsers;
+  final UserID userID;
 
-  User({this.blockedUser});
+  User({
+    required this.blockedUsers,
+    required this.userID,
+  });
 
-  User.fromJson(Json json) : blockedUser = json["blockedUser"]?.cast<String>();
+  User.fromJson(Json json) :
+    blockedUsers = List<UserID>.from(json["blockedUsers"]),
+    userID = json["userID"];
 
-  Json toJson() => {"blockedUser": blockedUser};
+  Json toJson() => {
+    "blockedUsers": blockedUsers,
+    "userID": userID,
+  };
 }

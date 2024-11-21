@@ -3,12 +3,25 @@ import "utils.dart";
 extension type TutorID(String value) {}
 extension type CourseID(String value) {}
 
+enum AppointmentType {
+  oneOnOne("one-on-one"),
+  virtual("virtual"),
+  group("group");
+
+  final String jsonName;
+  const AppointmentType(this.jsonName);
+
+  String toJson() => jsonName;
+  static AppointmentType fromJson(String name) =>
+    values.firstWhere((value) => value.jsonName == name);
+}
+
 class TutorAvailability {
   final TutorID tutorId;
   final String department;
-  final List<CourseID> availableCourses;
+  final Set<CourseID> availableCourses;
   final String tutorName;
-  final String appointmentType;
+  final AppointmentType appointmentType;
   final DateTime appointmentDateTime;
   final int? maxStudents;
   final String location;
@@ -28,28 +41,28 @@ class TutorAvailability {
     this.note,
   });
 
-  TutorAvailability.fromJson(Json json)
-      : tutorId = TutorID(json["tutorId"]),
-        department = json["department"],
-        availableCourses = json["availableCourses"]?.cast<String>() ?? [],
-        tutorName = json["tutorName"],
-        appointmentType = json["appointmentType"],
-        appointmentDateTime = DateTime.parse(json["appointmentDateTime"]),
-        maxStudents = json["maxStudents"],
-        location = json["location"],
-        tutorContact = json["tutorContact"],
-        note = json["note"];
+  TutorAvailability.fromJson(Json json) :
+    tutorId = TutorID(json["tutorId"]),
+    department = json["department"],
+    availableCourses = Set<CourseID>.from(json["availableCourses"]),
+    tutorName = json["tutorName"],
+    appointmentType = AppointmentType.fromJson(json["appointmentType"]),
+    appointmentDateTime = DateTime.parse(json["appointmentDateTime"]),
+    maxStudents = json["maxStudents"],
+    location = json["location"],
+    tutorContact = json["tutorContact"],
+    note = json["note"];
 
   Json toJson() => {
-        "tutorId": tutorId.value,
-        "department": department,
-        "availableCourses": availableCourses,
-        "tutorName": tutorName,
-        "appointmentType": appointmentType,
-        "appointmentDateTime": appointmentDateTime,
-        "maxStudents": maxStudents,
-        "location": location,
-        "tutorContact": tutorContact,
-        "note": note,
-      };
+    "tutorId": tutorId.value,
+    "department": department,
+    "availableCourses": availableCourses.toList(),
+    "tutorName": tutorName,
+    "appointmentType": appointmentType.toJson(),
+    "appointmentDateTime": appointmentDateTime,
+    "maxStudents": maxStudents,
+    "location": location,
+    "tutorContact": tutorContact,
+    "note": note,
+  };
 }
