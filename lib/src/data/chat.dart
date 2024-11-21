@@ -11,8 +11,10 @@ extension type UserID(String value) {}
 class Chat {
   /// A unique ID.
   final ChatID id;
+
   /// A list of messages to contain the data for the chat.
   final List<Message> messages;
+
   /// A set of members within the chat.
   final Set<UserID> members;
 
